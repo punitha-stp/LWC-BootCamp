@@ -1,0 +1,32 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-19-2020
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   11-19-2020   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <lightning-card title="For Each Demo" icon-name="standard:contact">
+        <table style="border:1px black solid">
+            <tr>
+                <th>Index</th><th>Id</th><th>Name</th><th>Email</th>
+            </tr>
+            <!--header row goes here -->
+            <template for:each={tableContent} for:item="row">
+                <tr key={row.Id}><td>{row.Index}</td><td>{row.Id}</td><td>{row.Name}</td><td>{row.Email}</td></tr>
+            </template>
+        </table>
+    </lightning-card>
+    <lightning-card title="Iterator Demo" icon-name="standard:contact">
+        <ul class="slds-m-around_medium">
+            <template iterator:rowval={tableContent}>
+                <li key={rowval.value.Id}>
+                    {rowval.value.Name} - {rowval.value.Email} 
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
